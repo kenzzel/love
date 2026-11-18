@@ -1,27 +1,140 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#030914"><title>For You</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#050711">
+<title>I Have Something For You</title>
 <style>
-*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#030914;color:#fff;font-family:Georgia,'Times New Roman',serif}
-.scene{position:relative;width:100%;height:100svh;min-height:520px;overflow:hidden;background:radial-gradient(ellipse at 50% 74%,#071528 0,#040d1b 42%,#020711 100%)}
-.stars,.stars:before,.stars:after{position:absolute;inset:0;content:"";pointer-events:none;background-image:radial-gradient(1px 1px at 8% 13%,#fff 90%,transparent),radial-gradient(1px 1px at 22% 34%,#dce8ff 90%,transparent),radial-gradient(1px 1px at 77% 19%,#fff 90%,transparent),radial-gradient(1px 1px at 88% 61%,#dce8ff 90%,transparent),radial-gradient(1px 1px at 48% 12%,#fff 90%,transparent),radial-gradient(1px 1px at 63% 43%,#fff 90%,transparent),radial-gradient(1px 1px at 31% 76%,#dce8ff 90%,transparent),radial-gradient(1px 1px at 93% 87%,#fff 90%,transparent),radial-gradient(1px 1px at 14% 88%,#fff 90%,transparent),radial-gradient(1px 1px at 54% 63%,#dce8ff 90%,transparent);background-size:310px 270px;opacity:.7;animation:twinkle 5s ease-in-out infinite alternate}.stars:before{transform:scale(1.3);opacity:.45;animation-duration:7s}.stars:after{transform:scale(.8);opacity:.55;animation-duration:4s}@keyframes twinkle{from{opacity:.25}to{opacity:.9}}
-.glow{position:absolute;width:210px;height:210px;border-radius:50%;background:#d5b65b;filter:blur(90px);opacity:0;bottom:5%;left:50%;transform:translateX(-50%);transition:opacity 2s}.scene.opened .glow{opacity:.15}
-.intro{position:absolute;left:0;right:0;top:46%;transform:translateY(-50%);text-align:center;z-index:5;transition:opacity 1s,transform 1s}.intro p{font-size:clamp(11px,2.8vw,14px);letter-spacing:.32em;margin:0 0 28px;color:#f4f1e9;text-shadow:0 0 12px #fff8}.open-btn{border:1px solid #ffffff40;background:#ffffff0b;color:#fff;border-radius:30px;padding:10px 30px;font:11px Georgia,serif;letter-spacing:.08em;min-width:74px;cursor:pointer;box-shadow:0 0 18px #ffffff0a;transition:.3s}.open-btn:active{transform:scale(.94);background:#ffffff20}.scene.opened .intro{opacity:0;transform:translateY(-65%);pointer-events:none}
-.message{position:absolute;z-index:4;top:9%;left:0;right:0;text-align:center;opacity:0;transform:translateY(10px);transition:opacity 1.7s,transform 1.7s;padding:0 12px}.message h1{font-weight:normal;font-size:clamp(16px,4vw,23px);letter-spacing:.28em;margin:0;text-shadow:0 0 13px #fff8}.message p{font-size:9px;letter-spacing:.23em;color:#d9dce5;margin-top:16px}.scene.opened .message{opacity:1;transform:translateY(0);transition-delay:1s}
-.garden{position:absolute;inset:0;z-index:2;pointer-events:none}.flower{position:absolute;bottom:-8px;width:110px;height:0;transform-origin:bottom;transition:height 3.5s cubic-bezier(.2,.8,.2,1)}.scene.opened .flower{height:var(--h)}.flower .stem{position:absolute;bottom:0;left:50%;width:2px;height:100%;background:linear-gradient(#b9ad79,#315b3d);transform:translateX(-50%);border-radius:100%}.leaf{position:absolute;width:35px;height:13px;background:linear-gradient(130deg,#397c4d,#102e27);border-radius:100% 0 100% 0;bottom:var(--y);left:calc(50% + var(--x));transform:rotate(var(--r));box-shadow:0 0 8px #4c9a5b33}.bloom{position:absolute;left:50%;top:-4px;width:12px;height:12px;transform:translate(-50%,-50%) scale(0);transition:transform 1s 2.8s}.scene.opened .bloom{transform:translate(-50%,-50%) scale(1)}.petal{position:absolute;left:50%;top:50%;width:12px;height:19px;margin:-17px 0 0 -6px;border-radius:60% 60% 45% 45%;background:linear-gradient(90deg,#bdbba6,#fffef0 50%,#d9d5bc);transform-origin:50% 17px;box-shadow:0 0 9px #fff9}.petal:nth-child(1){transform:rotate(0deg)}.petal:nth-child(2){transform:rotate(60deg)}.petal:nth-child(3){transform:rotate(120deg)}.petal:nth-child(4){transform:rotate(180deg)}.petal:nth-child(5){transform:rotate(240deg)}.petal:nth-child(6){transform:rotate(300deg)}.center{position:absolute;width:7px;height:7px;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;background:#f5d76b;box-shadow:0 0 9px 4px #f5d76b99}.firefly{position:absolute;width:4px;height:4px;border-radius:50%;background:#f5d36b;box-shadow:0 0 9px 3px #f5d36b88;opacity:0;animation:float 5s ease-in-out infinite}.scene.opened .firefly{opacity:.8;transition:opacity 2s 2s}@keyframes float{0%,100%{transform:translate(0,0);opacity:.2}50%{transform:translate(12px,-25px);opacity:1}}
-.credit{position:absolute;z-index:6;bottom:14px;left:50%;transform:translateX(-50%);font:9px Arial,sans-serif;color:#b9c3cc;background:#0a2630b8;border:1px solid #5a9b9a44;padding:5px 10px;border-radius:20px;white-space:nowrap;opacity:.8}
-@media(min-width:600px){.scene{max-width:430px;margin:auto;height:100svh;border-left:1px solid #ffffff0b;border-right:1px solid #ffffff0b}.garden{max-width:430px;left:50%;transform:translateX(-50%);width:100%}}
-</style></head><body>
-<main class="scene" id="scene"><div class="stars"></div><div class="glow"></div>
-<section class="intro"><p id="introText">Have something</p><button class="open-btn" id="open">Open</button></section>
-<section class="message"><h1>I LOVE U BABE</h1><p>YOU MAKE MY WORLD BEAUTIFUL</p></section>
-<div class="garden" id="garden"></div><div class="credit">✦ made with love ✦</div></main>
+:root{--bg:#050711;--cyan:#37d9ff;--mint:#62ffc0;--white:#f7f4e8}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(--white);font-family:Georgia,'Courier New',serif}
+body{position:relative;min-height:100svh;background:radial-gradient(ellipse at 50% 53%,#0b1020 0%,#070a15 48%,#040610 100%)}
+#stars{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.vignette{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse,transparent 45%,rgba(0,0,0,.3) 100%)}
+.scene{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 1s ease}
+.scene.active{opacity:1;pointer-events:auto}
+.intro{flex-direction:column;gap:25px}
+.introText{font-size:clamp(20px,5vw,29px);letter-spacing:.22em;text-shadow:0 0 7px #fff,0 0 22px #dce8ff;white-space:nowrap;animation:softPulse 2.8s infinite}
+.openBtn{border:1px solid #454653;background:rgba(31,31,39,.8);color:#f2f1f5;border-radius:50px;padding:17px 66px;font:16px Arial,sans-serif;letter-spacing:.02em;box-shadow:0 8px 30px #0006;cursor:pointer}
+.openBtn span{margin-right:10px;color:#d9e4ed}
+.openBtn:active{transform:scale(.96)}
+@keyframes softPulse{50%{opacity:.68;text-shadow:0 0 3px #fff,0 0 10px #dce8ff}}
+.terminalWrap{width:min(94vw,690px);display:flex;flex-direction:column;gap:16px;padding:18px 0}
+.term{border:1px solid #12364b;border-radius:12px;background:rgba(5,13,27,.94);box-shadow:0 0 28px #00c9ff12;overflow:hidden;font:14px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace;color:#b9c9dc}
+.termHead{height:48px;border-bottom:1px solid #18364a;padding:0 18px;display:flex;align-items:center;justify-content:space-between;color:#74dfff}
+.termBody{padding:16px 20px}
+.termBody .muted{color:#8ea3b8}.termBody .green{color:#62ffc0}.termBody .blue{color:#64dfff}
+.termBody p{margin:0 0 8px}.swatches{display:flex;gap:6px;margin:12px 0}.swatches i{width:19px;height:14px;border-radius:2px;background:#29394c}.swatches i:nth-child(2){background:#e83a58}.swatches i:nth-child(3){background:#20d879}.swatches i:nth-child(4){background:#e8bf26}.swatches i:nth-child(5){background:#4989ef}.swatches i:nth-child(6){background:#9d49d9}.swatches i:nth-child(7){background:#19bdc9}.swatches i:nth-child(8){background:#f5f5f5}
+.bar{height:8px;border-radius:9px;background:#1c2b40;overflow:hidden;margin:7px 0 14px}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#16bce9,#58f5ad);border-radius:9px;transition:width 2.5s linear}
+.skip{border:1px solid #28516a;color:#b9eaff;background:#0a1b2c;border-radius:6px;padding:5px 10px;font:12px ui-monospace;cursor:pointer}
+.termFooter{display:flex;justify-content:space-between;color:#63ffc1}
+.mainTitle{position:absolute;top:7.3%;left:0;width:100%;text-align:center;font:bold 17px Georgia,serif;letter-spacing:.24em;color:#fff;text-shadow:0 0 7px #fff,0 0 20px #dbe6ff;opacity:0;transition:opacity 1s}
+.hint{position:absolute;top:46%;width:100%;text-align:center;font:italic 12px Georgia,serif;letter-spacing:.15em;color:#c8c9d3;text-shadow:0 0 9px #fff;opacity:0;transition:opacity 1s}
+.garden{position:absolute;bottom:0;left:0;width:100%;height:48%;opacity:0;transition:opacity 1s;pointer-events:none}
+.garden svg{width:100%;height:100%;overflow:visible}
+.garden.show{opacity:1}
+.stem{fill:none;stroke:#2b9b62;stroke-width:3;stroke-linecap:round;stroke-dasharray:600;stroke-dashoffset:600;animation:grow 2.5s ease forwards}
+.leaf{fill:#16834f;stroke:#4cc77a;stroke-width:1;transform-box:fill-box;transform-origin:bottom center;opacity:0;animation:leafIn .8s ease forwards}
+.flower{transform-box:fill-box;transform-origin:center;transform:scale(0);animation:bloom .9s cubic-bezier(.2,.8,.2,1.3) forwards}
+.petal{fill:#fffdf0;stroke:#e5e0c9;stroke-width:.8;filter:url(#glow)}
+.center{fill:#f5d95b;filter:url(#goldGlow)}
+@keyframes grow{to{stroke-dashoffset:0}}
+@keyframes leafIn{to{opacity:1;transform:scale(1)}}
+@keyframes bloom{to{transform:scale(1)}}
+.firefly{position:absolute;width:5px;height:5px;border-radius:50%;background:#f4d95c;box-shadow:0 0 7px 3px #f3d34d99,0 0 20px 7px #e8c44855;opacity:0;animation:float 3.5s ease-in-out infinite}
+@keyframes float{0%{opacity:0;transform:translateY(16px) scale(.6)}30%{opacity:1}70%{opacity:.9}100%{opacity:0;transform:translateY(-95px) scale(1.15)}}
+.tapLayer{position:absolute;inset:0;z-index:3;display:none;cursor:pointer}
+.tapLayer.enabled{display:block}
+.sound{position:absolute;right:18px;bottom:22px;z-index:5;border:1px solid #ffffff20;background:#111827aa;color:#aab1c0;border-radius:50%;width:42px;height:42px;display:grid;place-items:center;font:18px Arial;cursor:pointer}
+@media(max-height:700px){.garden{height:44%}.terminalWrap{transform:scale(.88)}.hint{top:43%}}
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas><div class="vignette"></div>
+<section class="scene intro active" id="intro">
+  <div class="introText">I Have Something</div>
+  <button class="openBtn" id="open"><span>✧</span>Open</button>
+</section>
+<section class="scene" id="loading">
+ <div class="terminalWrap">
+  <div class="term">
+   <div class="termHead"><span>›_ kali@kali: ~</span><span id="percent">0%　<button class="skip" id="skip">Skip ▷|</button></span></div>
+   <div class="termBody">
+    <p class="blue">kali@kali</p><p class="muted">--------------------</p>
+    <p>OS: Kali GNU/Linux Rolling x86_64</p><p>Host: VirtualBox (1.2)</p><p>Kernel: Linux 7.1.7-kali-amd64</p><p>Shell: zsh 5.9.0.2</p><p>DE / WM: Xfce4 / Xfwm4 (X11)</p><p>Theme: Kali-Dark [GTK3]</p><p>Terminal: qterminal 2.4.0</p>
+    <div class="swatches"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+   </div>
+  </div>
+  <div class="term">
+   <div class="termBody">
+    <p>CPU　 <span class="green">━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span></p><div class="bar"><i style="width:72%"></i></div>
+    <p>Mem　 <span class="green">━━━━━━━━━━━━━━━━━━━━</span></p><div class="bar"><i style="width:54%;background:linear-gradient(90deg,#22c8eb,#e6ca43)"></i></div>
+    <p>Tasks: 223, 423 thr: <span class="green">1 running</span></p><p>Load average: 0.29 0.30 0.27</p>
+    <hr style="border:0;border-top:1px solid #1d3547;margin:15px -20px">
+    <p class="green">PID　 USER　 CPU%　 MEM%　 Command</p>
+    <p>1　 root　 0.4　 0.7　 /sbin/init splash</p><p>279　root　1.2　0.8　/usr/lib/systemd</p><p>432　root　2.1　1.4　/usr/bin/VBoxClient</p><p>618　kali　4.6　2.3　/usr/bin/qterminal</p><p>894　kali　6.8　3.1　/usr/local/bin/starfield</p><p class="muted">1337 kali　11.4　4.2　/opt/flowers/bloom-sequence --ready</p>
+    <hr style="border:0;border-top:1px solid #1d3547;margin:14px -20px">
+    <div class="termFooter"><span>┌─(kali㉿kali)-[~] ./flowers-init.sh</span><span id="loadText">LOADING 0%</span></div>
+    <div class="bar"><i id="loadBar"></i></div>
+   </div>
+  </div>
+ </div>
+</section>
+<section class="scene" id="final">
+ <div class="mainTitle" id="title">I LOVE U BABE</div>
+ <div class="hint" id="hint">Tap anywhere to bloom</div>
+ <div class="garden" id="garden">
+  <svg viewBox="0 0 360 420" preserveAspectRatio="xMidYMax meet" aria-label="Bunga putih bercahaya">
+   <defs><filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="goldGlow" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+   <!-- stems -->
+   <path class="stem" d="M180 420 Q174 300 180 125" style="animation-delay:.1s"/>
+   <path class="stem" d="M175 420 Q145 305 104 205" style="animation-delay:.25s"/>
+   <path class="stem" d="M185 420 Q210 300 255 220" style="animation-delay:.4s"/>
+   <path class="stem" d="M155 420 Q125 320 60 280" style="animation-delay:.55s"/>
+   <path class="stem" d="M205 420 Q240 320 310 285" style="animation-delay:.7s"/>
+   <!-- leaves -->
+   <path class="leaf" d="M160 365 Q105 345 88 305 Q137 309 160 365" style="animation-delay:1s"/>
+   <path class="leaf" d="M174 340 Q220 310 239 275 Q190 286 174 340" style="animation-delay:1.15s"/>
+   <path class="leaf" d="M145 390 Q90 380 48 340 Q105 342 145 390" style="animation-delay:1.3s"/>
+   <path class="leaf" d="M207 380 Q264 360 298 320 Q244 327 207 380" style="animation-delay:1.4s"/>
+   <path class="leaf" d="M180 300 Q130 275 120 238 Q165 252 180 300" style="animation-delay:1.5s"/>
+   <path class="leaf" d="M190 325 Q236 300 259 260 Q211 274 190 325" style="animation-delay:1.6s"/>
+   <!-- grass -->
+   <g fill="none" stroke="#32b86d" stroke-width="3" stroke-linecap="round"><path d="M0 420 Q20 320 8 265"/><path d="M20 420 Q34 345 53 300"/><path d="M35 420 Q58 340 83 315"/><path d="M360 420 Q340 320 353 265"/><path d="M340 420 Q320 345 302 295"/><path d="M325 420 Q300 355 278 320"/></g>
+   <!-- flowers: custom layered petals -->
+   <g class="flower" style="animation-delay:1.4s" transform="translate(180 126)">
+    <ellipse class="petal" cy="-19" rx="10" ry="20"/><ellipse class="petal" cy="-19" rx="10" ry="20" transform="rotate(60)"/><ellipse class="petal" cy="-19" rx="10" ry="20" transform="rotate(120)"/><ellipse class="petal" cy="-19" rx="10" ry="20" transform="rotate(180)"/><ellipse class="petal" cy="-19" rx="10" ry="20" transform="rotate(240)"/><ellipse class="petal" cy="-19" rx="10" ry="20" transform="rotate(300)"/><circle class="center" r="7"/>
+   </g>
+   <g class="flower" style="animation-delay:1.8s" transform="translate(104 205) scale(.8)">
+    <ellipse class="petal" cy="-16" rx="9" ry="17"/><ellipse class="petal" cy="-16" rx="9" ry="17" transform="rotate(60)"/><ellipse class="petal" cy="-16" rx="9" ry="17" transform="rotate(120)"/><ellipse class="petal" cy="-16" rx="9" ry="17" transform="rotate(180)"/><ellipse class="petal" cy="-16" rx="9" ry="17" transform="rotate(240)"/><ellipse class="petal" cy="-16" rx="9" ry="17" transform="rotate(300)"/><circle class="center" r="6"/>
+   </g>
+   <g class="flower" style="animation-delay:2s" transform="translate(255 220) scale(.78)">
+    <ellipse class="petal" cy="-17" rx="10" ry="18"/><ellipse class="petal" cy="-17" rx="10" ry="18" transform="rotate(60)"/><ellipse class="petal" cy="-17" rx="10" ry="18" transform="rotate(120)"/><ellipse class="petal" cy="-17" rx="10" ry="18" transform="rotate(180)"/><ellipse class="petal" cy="-17" rx="10" ry="18" transform="rotate(240)"/><ellipse class="petal" cy="-17" rx="10" ry="18" transform="rotate(300)"/><circle class="center" r="6"/>
+   </g>
+   <g class="flower" style="animation-delay:2.2s" transform="translate(60 280) scale(.48)">
+    <ellipse class="petal" cy="-18" rx="10" ry="20"/><ellipse class="petal" cy="-18" rx="10" ry="20" transform="rotate(60)"/><ellipse class="petal" cy="-18" rx="10" ry="20" transform="rotate(120)"/><ellipse class="petal" cy="-18" rx="10" ry="20" transform="rotate(180)"/><ellipse class="petal" cy="-18" rx="10" ry="20" transform="rotate(240)"/><ellipse class="petal" cy="-18" rx="10" ry="20" transform="rotate(300)"/><circle class="center" r="6"/>
+   </g>
+   <g class="flower" style="animation-delay:2.35s" transform="translate(310 285) scale(.46)">
+    <ellipse class="petal" cy="-18" rx="10" ry="20"/><ellipse class="petal" cy="-18" rx="10" ry="20" transform="rotate(60)"/><ellipse class="petal" cy="-18" rx="10" ry="20" transform="rotate(120)"/><ellipse class="petal" cy="-18" rx="10" ry="20" transform="rotate(180)"/><ellipse class="petal" cy="-18" rx="10" ry="20" transform="rotate(240)"/><ellipse class="petal" cy="-18" rx="10" ry="20" transform="rotate(300)"/><circle class="center" r="6"/>
+   </g>
+  </svg>
+ </div>
+</section>
+<div class="tapLayer" id="tapLayer" aria-label="Tap anywhere to bloom"></div>
+<button class="sound" id="sound" title="Musik">♫</button>
 <script>
-const scene=document.getElementById('scene'),garden=document.getElementById('garden');
-const blooms=[{x:16,h:'27%',y:0},{x:27,h:'20%',y:0},{x:39,h:'34%',y:0},{x:52,h:'24%',y:0},{x:65,h:'39%',y:0},{x:77,h:'28%',y:0},{x:88,h:'22%',y:0}];
-blooms.forEach((b,i)=>{const f=document.createElement('div');f.className='flower';f.style.left=b.x+'%';f.style.setProperty('--h',b.h);f.style.transitionDelay=(.25+i*.22)+'s';f.innerHTML='<div class="stem"></div><i class="leaf" style="--y:25%;--x:-30px;--r:-25deg"></i><i class="leaf" style="--y:52%;--x:0px;--r:25deg"></i><div class="bloom">'+Array.from({length:6},()=>'<i class="petal"></i>').join('')+'<i class="center"></i></div>';garden.appendChild(f)});
-for(let i=0;i<24;i++){const p=document.createElement('i');p.className='firefly';p.style.left=(8+Math.random()*84)+'%';p.style.top=(35+Math.random()*52)+'%';p.style.animationDelay=(Math.random()*5)+'s';p.style.animationDuration=(3+Math.random()*4)+'s';garden.appendChild(p)}
-document.getElementById('open').addEventListener('click',()=>{scene.classList.add('opened');document.getElementById('introText').textContent='I love something'});
-</script></body></html>
+const canvas=document.getElementById('stars'),ctx=canvas.getContext('2d');let stars=[];
+function resize(){let d=Math.min(devicePixelRatio||1,2);canvas.width=innerWidth*d;canvas.height=innerHeight*d;canvas.style.width=innerWidth+'px';canvas.style.height=innerHeight+'px';ctx.setTransform(d,0,0,d,0,0);stars=Array.from({length:145},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*1.35+.25,a:Math.random()*.7+.2,s:Math.random()*.012+.003,t:Math.random()*6.28}))}
+function draw(){ctx.clearRect(0,0,innerWidth,innerHeight);for(const p of stars){p.t+=p.s;let a=p.a*(.65+.35*Math.sin(p.t));ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=`rgba(${p.r>1.2?'220,228,245':'190,197,211'},${a})`;ctx.shadowBlur=p.r>1.2?7:0;ctx.shadowColor='#dceaff';ctx.fill()}requestAnimationFrame(draw)}
+addEventListener('resize',resize);resize();draw();
+const intro=document.getElementById('intro'),loading=document.getElementById('loading'),finalScene=document.getElementById('final'),tapLayer=document.getElementById('tapLayer');
+function show(el){[intro,loading,finalScene].forEach(x=>x.classList.remove('active'));el.classList.add('active')}
+let finished=false;
+function finish(){if(finished)return;finished=true;show(finalScene);setTimeout(()=>{document.getElementById('title').style.opacity=1;document.getElementById('hint').style.opacity=1;tapLayer.classList.add('enabled')},350)}
+document.getElementById('open').addEventListener('click',()=>{show(loading);let n=0;const pct=document.getElementById('percent'),bar=document.getElementById('loadBar'),txt=document.getElementById('loadText');const timer=setInterval(()=>{n+=4;pct.firstChild.textContent=n+'%　';txt.textContent='LOADING '+n+'%';bar.style.width=n+'%';if(n>=100){clearInterval(timer);setTimeout(finish,450)}},85);document.getElementById('skip').onclick=()=>{clearInterval(timer);finish()}});
+function bloom(){if(!finalScene.classList.contains('active'))return;tapLayer.classList.remove('enabled');document.getElementById('hint').style.opacity=0;document.getElementById('garden').classList.add('show');for(let i=0;i<23;i++){let f=document.createElement('i');f.className='firefly';f.style.left=(8+Math.random()*84)+'%';f.style.top=(45+Math.random()*45)+'%';f.style.animationDelay=(Math.random()*2)+'s';f.style.animationDuration=(2.7+Math.random()*2)+'s';finalScene.appendChild(f)}}
+tapLayer.addEventListener('click',bloom);
+document.getElementById('sound').addEventListener('click',()=>{document.getElementById('sound').textContent='♪';});
+</script>
+</body></html>
